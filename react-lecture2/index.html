@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script type="text/babel">
+        const Head = ( props ) => {
+            return <React.Fragment>
+                <h1>{ props.heading }</h1>
+                <p>{ props.description }</p>
+            </React.Fragment>
+        }
+
+        const Content = ( props ) => {
+            return <div className="content">
+                <p>{ props.content }</p>
+                <h3>{ props.author }</h3>
+            </div>
+        }
+
+        const Blog = () => {
+            const blog = {
+                heading: 'Data Structure',
+                description: 'Stacks And Queue',
+                author: 'Ratnesh Singh',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nesciunt maiores iure, similique exercitationem velit eos ex repudiandae cupiditate totam dolor omnis sint impedit ratione! Nobis autem magnam cupiditate ipsa.'
+            }
+            return <main>
+                <Head heading={ blog.heading} description={blog.description} />
+                <Head heading="JavaScript" description="Very goo language" />
+                <Content content={ blog.content} author={ blog.author }/>
+            </main>
+        }
+
+        ReactDOM.render(<Blog/>, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
